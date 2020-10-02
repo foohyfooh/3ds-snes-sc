@@ -39,10 +39,10 @@ def convert_ves_to_srm():
     pass
 
 def convert_srm_to_ves():
-    if srm != None and gpid.get() != None:
+    if srm != None and gpid.get() != '':
         output2['text'] = srm_to_ves(srm, gpid.get())
     else:
-        output2['text'] = 'No file selected.'
+        output2['text'] = 'Missing variable.'
     pass
 
 #

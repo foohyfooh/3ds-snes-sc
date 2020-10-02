@@ -12,21 +12,20 @@ def ves_to_srm(inputf):
     f.close()
     return outputf
 
-def srm_to_ves(inputves, inputsrm):
-    f = open(inputves, 'r+')
-    header = mmap.mmap(f.fileno(), 0)
-    header = bytearray(bytearray(header))
-    header = header[0:48]
-    f.close()
-
-    f = open(inputsrm, 'r+')
+def srm_to_ves(inputf, gpid):
+    f = open(inputf, 'r+')
     m = mmap.mmap(f.fileno(), 0)
+    m = bytearray(bytes(47) + bytearray(m))
+    m[0] = 1
+    m[4] = int(gpid[0:2], 16)
+    m[5] = int(gpid[2:], 16)
+    m[16:23] = 193, 53, 134, 165, 101, 203, 148, 44
+    checksum = str(hex(sum(m)))
+    m[2] = int(checksum[4:], 16) - 1
+    m[3] = int(checksum[2:4], 16)
     f.close()
-
-    base = os.path.basename(inputves)
-    outputf = os.path.splitext(base)[0] + '.ves'
+    outputf = gpid + '.ves'
     f = open(outputf, 'wb')
-    f.write(header + m)
+    f.write(m)
     f.close()
     return outputf
-    pass

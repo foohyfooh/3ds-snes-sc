@@ -1,11 +1,12 @@
 from functions import ves_to_srm, srm_to_ves, os
-from tkinter import Tk, TOP, LEFT, mainloop, Label, LabelFrame, Button, Grid, Pack, filedialog, messagebox
+from tkinter import Tk, TOP, LEFT, mainloop, Label, LabelFrame, Button, Grid, Pack, filedialog, messagebox, Entry
 
 root = Tk()
-root.title('3DS - SNES Save Converter')
+root.title('3DS SNES Save Converter')
 root.resizable(False, False)
 
 ves = None
+srm = None
 
 #
 # GUI FUNCTIONS
@@ -38,8 +39,8 @@ def convert_ves_to_srm():
     pass
 
 def convert_srm_to_ves():
-    if ves != None and srm != None:
-        output2['text'] = srm_to_ves(ves, srm)
+    if srm != None and gpid.get() != None:
+        output2['text'] = srm_to_ves(srm, gpid.get())
     else:
         output2['text'] = 'No file selected.'
     pass
@@ -50,7 +51,7 @@ def convert_srm_to_ves():
 info = LabelFrame(root, text='Info', padx=5, pady=5)
 info.grid(row=0, column=1, padx=10, pady=10, sticky='nsew')
 
-infolbl = Label(info, text = '3DS - SNES Save Converter\ngithub.com/manuGMG/3ds-snes-sc', pady=12)
+infolbl = Label(info, text = '3DS SNES Save Converter\ngithub.com/manuGMG/3ds-snes-sc', pady=12)
 infolbl.pack(side = TOP)
 
 #
@@ -95,10 +96,10 @@ lbl.grid(row=0, column=0, sticky='nsew')
 btn = Button(frame2, text ='Select..', width='7', command=select_srm)
 btn.grid(row=0, column=1, pady=3, sticky='nsew')
 
-lbl2 = Label(frame2, text = 'Select .VES File:')
+lbl2 = Label(frame2, text = 'Game Preset ID:')
 lbl2.grid(row=1, column=0, sticky='nsew')
 
-btn2 = Button(frame2, text ='Select..', width='7', command=select_ves)
-btn2.grid(row=1, column=1, sticky='nsew')
+gpid = Entry(frame2, width='7')
+gpid.grid(row=1, column=1, sticky='nsew')
 
 mainloop()

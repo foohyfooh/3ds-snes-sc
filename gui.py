@@ -41,7 +41,10 @@ def convert_ves_to_srm():
 
 def convert_srm_to_ves():
     if srm != None and gpid.get() != '':
-        output2['text'] = srm_to_ves(srm, gpid.get())
+        if len(gpid.get()) == 4:
+            output2['text'] = srm_to_ves(srm, gpid.get())
+        else:
+            output2['text'] = 'Invalid GPID.'
     else:
         output2['text'] = 'Missing variable.'
     pass

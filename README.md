@@ -1,4 +1,4 @@
-# 3ds-snes-sc
+# 3DS SNES Save Converter
 <p align="center">
 <b>Convert your 3DS SNES VC Saves to .SRM and vice versa.</b>
 </p>

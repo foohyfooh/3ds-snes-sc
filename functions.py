@@ -17,8 +17,8 @@ def srm_to_ves(inputf, gpid):
     m = mmap.mmap(f.fileno(), 0)
     m = bytearray(bytes(47) + bytearray(m))
     m[0] = 1
-    m[4] = int(gpid[0:2], 16)
-    m[5] = int(gpid[2:], 16)
+    m[5] = int(gpid[0:2], 16)
+    m[4] = int(gpid[2:], 16)
     m[16:23] = 193, 53, 134, 165, 101, 203, 148, 44
     checksum = str(hex(sum(m)))
     m[2] = int(checksum[4:], 16) - 1

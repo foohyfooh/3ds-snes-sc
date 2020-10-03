@@ -1,8 +1,7 @@
 from functions import ves_to_srm, srm_to_ves, os
 from tkinter import Tk, ttk, TOP, LEFT, mainloop, Label, LabelFrame, Button, Grid, Pack, filedialog, messagebox, Entry
-from ttkthemes import ThemedTk
 
-root = ThemedTk(theme="breeze")
+root = Tk()
 root.title('3DS SNES Save Converter')
 root.resizable(False, False)
 

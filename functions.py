@@ -21,8 +21,9 @@ def srm_to_ves(inputf, gpid):
     m[4] = int(gpid[2:], 16)
     m[16:23] = 193, 53, 134, 165, 101, 203, 148, 44
     checksum = str(hex(sum(m)))
-    m[2] = int(checksum[4:], 16) - 1
-    m[3] = int(checksum[2:4], 16)
+    print(checksum)
+    m[2] = int(checksum[-2:], 16) - 1
+    m[3] = int(checksum[-4:-2], 16)
     f.close()
     outputf = gpid + '.ves'
     f = open(outputf, 'wb')

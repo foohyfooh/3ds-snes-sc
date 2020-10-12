@@ -51,11 +51,11 @@ info = LabelFrame(root, text='Info', padx=5, pady=5)
 info.grid(row=0, column=1, padx=10, pady=10, sticky='nsew')
 
 infolbl = Label(info, text='3DS SNES Save Converter\ngithub.com/manuGMG/3ds-snes-sc', pady=12)
-infolbl.pack(side = TOP)
+infolbl.pack(side=TOP)
 
 #
 # ACTIONS
-# 
+#
 actions = LabelFrame(root, text='Actions', padx=5, pady=5)
 actions.grid(row=1, column=1, padx=10, pady=10, sticky='nsew')
 
@@ -73,19 +73,19 @@ output2.grid(row=1, column=1, sticky='nsew')
 
 #
 # VES TO SRM
-# 
+#
 frame = LabelFrame(root, text='Convert from .VES to .SRM', padx=5, pady=5)
 frame.grid(row=0, column=0, padx=10, pady=10, sticky='nsew')
 
 lbl = Label(frame, text='Select .VES File:')
-lbl.pack(side = LEFT)
+lbl.pack(side=LEFT)
 
 btn = Button(frame, text='Select..', width='7', command=select_ves)
-btn.pack(side = LEFT)
+btn.pack(side=LEFT)
 
 #
 # SRM TO VES
-# 
+#
 frame2 = LabelFrame(root, text='Convert from .SRM to .VES', padx=5, pady=5)
 frame2.grid(row=1, column=0, padx=10, pady=10, sticky='nsew')
 

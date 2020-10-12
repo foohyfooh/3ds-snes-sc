@@ -1,4 +1,4 @@
-from tkinter import Tk, ttk, TOP, LEFT, mainloop, Label, LabelFrame, Button, Grid, Pack, filedialog, messagebox, Entry
+from tkinter import Tk, TOP, LEFT, mainloop, Label, LabelFrame, Button, filedialog, messagebox, Entry
 from functions import ves_to_srm, srm_to_ves, os
 
 root = Tk()

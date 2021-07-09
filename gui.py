@@ -14,6 +14,8 @@ srm = None
 def select_ves():
     global ves
     inputf = filedialog.askopenfilename(initialdir="/", title="Select .VES file", filetypes=((".VES File", "*.ves"), ("All files", "*.*")))
+    if not inputf:
+        return
     base = os.path.basename(inputf)
     if os.path.splitext(base)[1].lower() == '.ves':
         ves = inputf
@@ -23,6 +25,8 @@ def select_ves():
 def select_srm():
     global srm
     inputf = filedialog.askopenfilename(initialdir="/", title="Select .SRM file", filetypes=((".SRM File", "*.srm"), ("All files", "*.*")))
+    if not inputf:
+        return
     base = os.path.basename(inputf)
     if os.path.splitext(base)[1].lower() == '.srm':
         srm = inputf
